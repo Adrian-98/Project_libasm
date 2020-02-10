@@ -1,0 +1,1 @@
+nasm -fmacho64 *.s && gcc main.c *.o  && ./a.out
