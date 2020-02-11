@@ -6,17 +6,20 @@
 #    By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/11 14:17:32 by amunoz-p          #+#    #+#              #
-#    Updated: 2020/02/11 14:36:34 by amunoz-p         ###   ########.fr        #
+#    Updated: 2020/02/11 17:38:13 by amunoz-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME    =   libasm.a
+
 SRCS    =   ft_strlen.s     \
             ft_strcpy.s     \
             ft_strcmp.s     \
-#            ft_write.s      \
-            ft_read.s       \
-            ft_strdup.s     \#
+			ft_strdup.s    \
+           	#ft_write.s      \
+            ft_read.s       \#
+            
+
 OBJS    =   $(SRCS:.s=.o)
 NASM    =   nasm -fmacho64
 CFLAGS  =   -Wall -Werror -Wextra

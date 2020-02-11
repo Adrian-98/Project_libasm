@@ -14,5 +14,6 @@ section .text
 	jmp loop
 
     nullsrc:
+	mov BYTE[rdi + rax], 0
     mov rax, rsi
     ret
