@@ -1,45 +1,34 @@
-extern strlen
-
 section .text
-    global _ft_strcmp
-
-    _ft_strcmp:
-    call _ft_srtlen
-
-    mov rcx, rax
-    mov rax, 0
-
-    bucle:
-    dec rcx
-    mov dl, BYTE[rdi + rax]
-    mov al, BYTE[rsi + rax]
     
-    cmp dl, al
-    ja more
-    jb less
-    inc rax
+    global _ft_strcmp 		; void *strcmp(char const *s1, char const *s2)
 
-    LOOP bucle
+ _ft_strcmp:
+	xor rcx, rcx
+	mov rax, 0
 
+ loop:
+	mov al, BYTE[rdi + rcx]
+	mov r8b, BYTE[rsi + rcx]
+	cmp al, 0
+	je end
+	cmp r8b, 0
+	je end
+	cmp al, r8b
+	jne end
+	inc rcx
+	jmp loop
 
-    return:
-    cmp dl, al
-    je equal
-    jmp less
+ end:
+	cmp al, r8b
+	ja more
+	jb less
+	ret
 
-    return1:
-    cmp dl, al
-    je equal
-    jmp more
+ more:
+	mov rax, 1
+	ret
 
-    equal:
-    mov rax, 0
-    ret
+ less:
+	mov rax, -1
+	ret
 
-    less:
-    mov rax, -1
-    ret
-
-    more:
-    mov rax, 1
-    ret
