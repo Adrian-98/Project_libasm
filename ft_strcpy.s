@@ -6,10 +6,10 @@ section .text
 	mov rbx, rdi
 
     loop:
-	mov dl, BYTE[rsi + rax]
-    cmp dl, 0                         ;proteccion src
-    je nullsrc
-    mov BYTE[rdi + rax], dl
+	mov dl, BYTE[rsi + rax]			;guardamos en dl el caracter de rsi
+    cmp dl, 0                         ;si fuera nulo 
+    je nullsrc							; llamamos nullsrc
+    mov BYTE[rdi + rax], dl				;guardamos en rdi el caracter de rsi
 	inc rax
 	jmp loop
 

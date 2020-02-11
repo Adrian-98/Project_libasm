@@ -7,8 +7,8 @@ section .text
     loop:
     inc rax
     cmp byte [rdi + rax], 0                      ; comparamos el valor de la casilla 0 + rax
-    je return
-    jmp loop
+    je return									; si es igua return
+    jmp loop									;llamos a loop para creaar un bucle
 
     return:
     ret
