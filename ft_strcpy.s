@@ -15,5 +15,5 @@ section .text
 
     nullsrc:
 	mov BYTE[rdi + rax], 0
-    mov rax, rsi
+    mov rax, rbx
     ret
