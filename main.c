@@ -6,17 +6,20 @@
 /*   By: amunoz-p <amunoz-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 19:41:11 by amunoz-p          #+#    #+#             */
-/*   Updated: 2020/02/11 18:06:29 by amunoz-p         ###   ########.fr       */
+/*   Updated: 2020/02/11 19:55:26 by amunoz-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 #include <stdio.h>
+#include <unistd.h>
 
 char	*ft_strcpy(char *dest, char *src);
 int		ft_strlen(char *str);
 int		ft_strcmp(const char *s1, const char *s2);
 char	*ft_strdup(const char *s1);
+int     ft_write(int fd, char *a, int bytes);
+int		ft_read(int fd, char *a, int bytes);
 
 int main(void)
 {
@@ -42,7 +45,19 @@ int main(void)
 	printf("\n");
 	printf(" TEST funcion !!!!!FT_STRDUP!!!!\n");
 	printf("[%s]  (%s)\n", strdup("caracola"), ft_strdup("caracola"));
-	printf("[%s]  (%s)\n", strdup("hostiaaas PILOTES. AHHHHHHH que son de bones"), ft_strdup("hostiaaas PILOTES. AHHHHHHH que son de bones"));
+	printf("[%s]  (%s)\n", strdup("hostiaaas PILOTES.... AHHHHHHH que son de bones"), ft_strdup("hostiaaas PILOTES.... AHHHHHHH que son de bones"));
 	printf("[%s]  (%s)\n", strdup(""), ft_strdup(""));
+	printf(" TEST funcion !!!!!FT_WRITE!!!!\n");
+	write(1, "[me ENCANTAAAAN]\n", 17);
+	ft_write(1, "(me ENCANTAAAAN)\n", 17);
+	printf(" TEST funcion !!!!!FT_READ!!!!\n");
+	int ret;
+	char buffer[128];
+	ret = read(0, buffer, 100);
+	buffer[ret - 1] = 0;
+	printf("[%s]\n", buffer);
+	ret = ft_read(0, buffer, 100);
+	buffer[ret - 1] = 0;
+	printf("(%s)\n", buffer);
 	return (0);
 }

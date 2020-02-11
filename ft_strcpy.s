@@ -1,11 +1,11 @@
 section .text
     global _ft_strcpy
 
-    _ft_strcpy:
-    mov rax,0
+	_ft_strcpy:
+	mov rax,0
 	mov rbx, rdi
 
-    loop:
+	loop:
 	mov dl, BYTE[rsi + rax]			;guardamos en dl el caracter de rsi
     cmp dl, 0                         ;si fuera nulo 
     je nullsrc							; llamamos nullsrc
@@ -13,7 +13,7 @@ section .text
 	inc rax
 	jmp loop
 
-    nullsrc:
+	nullsrc:
 	mov BYTE[rdi + rax], 0
     mov rax, rbx
     ret
