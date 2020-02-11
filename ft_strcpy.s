@@ -6,13 +6,13 @@ section .text
 	mov rbx, rdi
 
     loop:
-    cmp byte [rsi + rax], 0                         ;proteccion src
+	mov dl, BYTE[rsi + rax]
+    cmp dl, 0                         ;proteccion src
     je nullsrc
-	mov rdi, [rsi + rax]
-	inc rdi
+    mov BYTE[rdi + rax], dl
 	inc rax
 	jmp loop
 
-    nullsrc;
-    mov rax, rbx
+    nullsrc:
+    mov rax, rsi
     ret
